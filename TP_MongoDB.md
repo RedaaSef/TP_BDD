@@ -12,7 +12,7 @@ MongoDB est particulièrement utilisé dans des scénarios où la gestion de gra
     Les systèmes de gestion de contenu (CMS).
     Les analyses de données en temps réel et les tableaux de bord.
     Les plateformes de commerce en ligne pour gérer les catalogues produits.
----
+
 
 ## Démarrage
 
