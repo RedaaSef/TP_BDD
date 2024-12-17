@@ -232,3 +232,73 @@ curl -X GET http://admin:secret@localhost:5984/employes/_all_docs?include_docs=t
 ---
 
 ### **8. Conclusion**  
+
+
+Voici un résumé des consignes et une première ébauche de réponse pour l'**Exercice 1** de votre TP sur le **concept de MapReduce avec CouchDB**.
+
+---
+
+### **Exercice 1** : **Matrice des liens web**  
+Soit une matrice **M** de dimension **N × N** représentant un grand nombre de pages web et leurs relations, chaque lien étant étiqueté par un poids.  
+
+---
+
+#### **1. Modèle pour représenter la matrice sous forme de documents JSON**  
+Pour stocker une telle matrice dans CouchDB, nous pouvons utiliser une structure document par ligne (ou par lien), comme suit :
+
+##### **Document JSON pour une ligne de la matrice :**  
+```json
+{
+  "_id": "page_1",
+  "page_source": "Page1",
+  "links": [
+    { "target": "Page2", "weight": 0.5 },
+    { "target": "Page3", "weight": 0.3 },
+    { "target": "Page4", "weight": 0.2 }
+  ]
+}
+```
+- **`_id`** : Identifiant unique du document (par exemple, la page source).  
+- **`page_source`** : Nom de la page source.  
+- **`links`** : Tableau contenant les pages cibles liées avec leurs poids respectifs.  
+
+---
+
+#### **2. Calcul de la norme d'un vecteur via MapReduce**  
+Pour calculer la norme d'un vecteur ligne **P₁** (décrit par les poids des liens), nous utilisons une fonction MapReduce.
+
+##### **Fonction Map**  
+La fonction **Map** émet les carrés des valeurs (poids des liens) :  
+```javascript
+function(doc) {
+  doc.links.forEach(function(link) {
+    emit(doc.page_source, Math.pow(link.weight, 2));
+  });
+}
+```
+
+##### **Fonction Reduce**  
+La fonction **Reduce** calcule la somme des carrés des poids :  
+```javascript
+function(keys, values) {
+  return sum(values);
+}
+```
+
+##### **Calcul de la norme finale**  
+La norme du vecteur **P₁** est obtenue par la racine carrée de la somme des carrés des poids.
+
+---
+
+#### **3. Produit de la matrice M avec un vecteur W**  
+Pour calculer le produit matriciel **ϕ = Σ (M₁ⱼ × Wⱼ)** pour chaque ligne **i** :  
+
+##### **Hypothèse :**  
+- Le vecteur **W(w₁, w₂, ..., wₙ)** est en mémoire (comme une variable statique).  
+
+##### **Fonction Map**  
+La fonction **Map** multiplie chaque poids par le composant correspondant du vecteur **W** :  
+```javascript
+var W = { "Page2": 0.6, "Page3": 0.8, "Page4": 0.9 }; // Exemple du vecteur W
+
+
