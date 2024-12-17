@@ -234,10 +234,6 @@ curl -X GET http://admin:secret@localhost:5984/employes/_all_docs?include_docs=t
 ### **8. Conclusion**  
 
 
-Voici un résumé des consignes et une première ébauche de réponse pour l'**Exercice 1** de votre TP sur le **concept de MapReduce avec CouchDB**.
-
----
-
 ### **Exercice 1** : **Matrice des liens web**  
 Soit une matrice **M** de dimension **N × N** représentant un grand nombre de pages web et leurs relations, chaque lien étant étiqueté par un poids.  
 
