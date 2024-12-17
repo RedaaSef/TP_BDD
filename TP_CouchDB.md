@@ -229,12 +229,6 @@ curl -X GET http://admin:secret@localhost:5984/employes/_all_docs?include_docs=t
 
 ### **7. Cas d'Utilisation de CouchDB**
 
-CouchDB est adapté pour :  
-- **Applications mobiles** : Synchronisation offline/online.  
-- **IoT** : Stockage distribué des données capteurs.  
-- **Big Data** : Agrégation et indexation via MapReduce.  
-- **Systèmes collaboratifs** : Gestion de conflits grâce à la réplication.  
-
 ---
 
 ### **8. Conclusion**  
