@@ -1,4 +1,4 @@
-# Redis: Introduction et Manipulations de Base (TP - NOSQL ) 
+# Redis: Introduction et Manipulations de Base (TP - NOSQL) 
 
 ## Contexte
 Redis est une base de données NoSQL rapide et performante, principalement utilisée pour stocker des paires clé-valeur. Contrairement aux bases de données relationnelles, Redis opère principalement en mémoire, ce qui en fait un choix idéal pour les systèmes nécessitant des temps de réponse faibles, comme le cache, les files d'attente ou encore les systèmes de publication/souscription.
