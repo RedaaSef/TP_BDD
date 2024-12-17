@@ -2,6 +2,20 @@
 # **MongoDB avec Docker**
 
 ---
+## Contexte
+MongoDB est une base de données NoSQL orientée documents, conçue pour offrir flexibilité et performance. Contrairement aux bases de données relationnelles, MongoDB stocke les données sous forme de documents JSON (ou BSON en interne), ce qui permet une structure plus dynamique et facile à adapter. Cela en fait un choix idéal pour les applications modernes nécessitant une grande évolutivité et des schémas flexibles.
+
+MongoDB est particulièrement utilisé dans des scénarios où la gestion de grands volumes de données et la rapidité des requêtes sont essentielles, comme :
+
+    Les applications web et mobiles nécessitant des données dynamiques.
+    Le stockage des journaux et des événements (logs).
+    Les systèmes de gestion de contenu (CMS).
+    Les analyses de données en temps réel et les tableaux de bord.
+    Les plateformes de commerce en ligne pour gérer les catalogues produits.
+---
+
+## Démarrage
+
 
 ## **1. Installation de Docker**
 
